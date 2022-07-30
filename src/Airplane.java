@@ -58,11 +58,10 @@ public class Airplane {
             }
             i++;            
         }
-        if (state) {
-            System.out.println("Seat succesfully reserved");
+        if (state) {            
             TicketGenerator ticketer = new TicketGenerator(this.planeId, this.seats.get(i));
             String ticket = ticketer.generateTicket();
-            System.out.println( "Seat succesfully reserved, your ticket ID number is: " + ticket);
+            System.out.println( "Seat succesfully reserved, your ticket ID number is: #" + ticket);
             return;
         } else {
             System.out.println("The flight is full"); 
@@ -70,6 +69,16 @@ public class Airplane {
         }
     }
 
+    public void cancelReservedSeat(String number){
+        int i = 0;
+        int Inumber = Integer.valueOf(number);
+        while (i <= this.seats.size()-1){
+            if (this.seats.get(i).getSeatNumber() == (Inumber)){
+                this.seats.get(i).cancelSeat();
+            }
+            i++;
+        }
+    }
 
 
     public String getPlaneId() {
