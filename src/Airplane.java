@@ -17,6 +17,10 @@ public class Airplane {
         this.seats = new ArrayList<>();
     }
     
+    public String getPlaneId() {
+        return planeId;
+    }
+
     public String getFrom() {
         return from;
     }
@@ -61,11 +65,9 @@ public class Airplane {
         if (state) {            
             TicketGenerator ticketer = new TicketGenerator(this.planeId, this.seats.get(i));
             String ticket = ticketer.generateTicket();
-            System.out.println( "Seat succesfully reserved, your ticket ID number is: #" + ticket);
-            return;
+            System.out.println( "Seat succesfully reserved, your ticket ID number is: #" + ticket);            
         } else {
-            System.out.println("The flight is full"); 
-            return;
+            System.out.println("The flight is full");             
         }
     }
 
@@ -79,12 +81,7 @@ public class Airplane {
             i++;
         }
     }
-
-
-    public String getPlaneId() {
-        return planeId;
-    }
-
+    
     public int availableSeats(){
         int availables = 0;
         int index = 0;

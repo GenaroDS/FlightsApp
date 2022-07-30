@@ -3,11 +3,8 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        /*MainFrame frame = new MainFrame();
-        frame.initialize();*/
         ArrayList<Airplane> flights = initialize();        
         flights.forEach(Airplane::prepareSeats);
-        /*flights.forEach(Airplane::showSeats);*/
         System.out.println("hi");
         System.out.println("1: Show flights");
         System.out.println("2: Book a flight");
@@ -98,7 +95,7 @@ public class App {
         return flights;
     }
 
-    
+
     public static ArrayList<Airplane> filterFlights(ArrayList<Airplane> flights, String from, String to){
         ArrayList<Airplane> newList = new ArrayList<>();
         int index = 0;
